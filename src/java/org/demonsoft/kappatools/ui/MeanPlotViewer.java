@@ -72,19 +72,10 @@ public class MeanPlotViewer implements ActionListener {
     private XYIntervalSeriesCollection cellChartData;
     
     Dimension minimumSize;
+    
+    private File[] inputFiles;
 
     
-    private static final File[] INPUT_FILES = {
-    	new File("test/data/test_1.out"),
-    	new File("test/data/test_2.out"),
-    	new File("test/data/test_3.out"),
-    	new File("test/data/test_4.out"),
-    	new File("test/data/test_5.out"),
-    	new File("test/data/test_6.out"),
-    	new File("test/data/test_7.out"),
-    	new File("test/data/test_8.out"),
-    	new File("test/data/test_9.out"),
-    };
     private static final String STATUS_COMPLETE = "Processing complete.";
     private static final String STATUS_PLOTTING = "Plotting results.";
     
@@ -187,18 +178,22 @@ public class MeanPlotViewer implements ActionListener {
 
     
     void runSimulation() {
-        try {
+    	if (inputFiles == null || inputFiles.length == 0) {
+    		return;
+    	}
+    	
+    	try {
             consoleTextArea.setText("");
             debugTextArea.setText("");
             textAreaData.setText("");
             
             setStatus(ToolbarMode.PROCESSING, STATUS_STARTING_SIMULATION);
 
-            List<TimePoint> timePoints = MeanPlotTools.getDataPoints(INPUT_FILES);
+            List<TimePoint> timePoints = MeanPlotTools.getDataPoints(inputFiles);
             
             setStatus(ToolbarMode.PROCESSING, STATUS_PLOTTING);
             
-            String simulationName = "SIMULATION NAME";
+            String simulationName = "Aggregate Plot";
 
             boolean firstPoint = true;
             for (TimePoint timePoint : timePoints) {
@@ -246,8 +241,8 @@ public class MeanPlotViewer implements ActionListener {
 	private void createCellMeanChart(String simulationName, TimePoint timePoint) {
         cellChartData = new XYIntervalSeriesCollection();
         for (Observable observable : timePoint.observables) {
-            float mean = observable.mean;
-            float stdDev = observable.stdDev;
+            double mean = observable.mean;
+            double stdDev = observable.stdDev;
             XYIntervalSeries series = new XYIntervalSeries(observable.name);
             series.setNotify(false);
             series.add(timePoint.time, timePoint.time, timePoint.time, mean, mean - stdDev, mean + stdDev);
@@ -279,15 +274,22 @@ public class MeanPlotViewer implements ActionListener {
 
     private void actionOpenFile() {
         JFileChooser fileChooser;
-//        if (replayFile != null) {
-//            fileChooser = new JFileChooser(replayFile.getParentFile());
-//        }
-//        else {
+        if (inputFiles != null && inputFiles.length > 0) {
+            fileChooser = new JFileChooser(inputFiles[0].getParentFile());
+        }
+        else {
             fileChooser = new JFileChooser(new File(System.getProperty("user.dir")));
-//        }
+        }
+        fileChooser.setMultiSelectionEnabled(true);
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setApproveButtonText("Plot");
+        
+        if (inputFiles != null && inputFiles.length > 0) {
+            fileChooser.setSelectedFiles(inputFiles);
+        }
+        
         if (fileChooser.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
-//            File file = fileChooser.getSelectedFile();
-//            openReplayFile(file);
+            inputFiles = fileChooser.getSelectedFiles();
             new Thread() {
                 @Override
                 public void run() {
@@ -309,8 +311,8 @@ public class MeanPlotViewer implements ActionListener {
         try {
         	int index = 0;
             for (Observable observable : timePoint.observables) {
-                float mean = observable.mean;
-                float stdDev = observable.stdDev;
+            	double mean = observable.mean;
+            	double stdDev = observable.stdDev;
                 XYIntervalSeries series = cellChartData.getSeries(index++);
                 series.add(timePoint.time, timePoint.time, timePoint.time, mean, mean - stdDev, mean + stdDev);
             }

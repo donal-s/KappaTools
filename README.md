@@ -7,6 +7,10 @@ Copyright &copy; 2012 DemonSoft.org
 <a href="http://www.demonsoft.org/">http://www.demonsoft.org/</a>
 
 
+Documentation for MeanPlotViewer is available at
+
+[https://github.com/donal-s/KappaTools/wiki/MeanPlotViewer-manual](https://github.com/donal-s/KappaTools/wiki/MeanPlotViewer-manual)
+
 <h4>LICENSE</h4>
 
 <p>This project is licenced under the GNU Lesser General Public
@@ -22,20 +26,20 @@ licences, listed below:</p>
         <th>License</th>
     </tr>
     <tr>
-        <td>Antlr v3.2</td>
-        <td><a href="http://www.antlr.org">http://www.antlr.org</a></td>
-        <td><a href="http://www.antlr.org/license.html">http://www.antlr.org/license.html</a></td>
-    </tr>
-    <tr>
         <td>jlfgr v1.0</td>
         <td><a
             href="http://java.sun.com/developer/techDocs/hi/repository/">http://java.sun.com/developer/techDocs/hi/repository/</a></td>
         <td>Included in archive</td>
     </tr>
     <tr>
-        <td>commons io v1.4</td>
+        <td>commons io v2.4</td>
         <td><a href="http://commons.apache.org/io/">http://commons.apache.org/io/</a></td>
         <td><a href="http://commons.apache.org/io/license.html">http://commons.apache.org/io/license.html</a></td>
+    </tr>
+    <tr>
+        <td>commons lang v3.1</td>
+        <td><a href="http://commons.apache.org/lang/">http://commons.apache.org/lang/</a></td>
+        <td><a href="http://commons.apache.org/lang/license.html">http://commons.apache.org/lang/license.html</a></td>
     </tr>
     <tr>
         <td>jcommon v1.0.16</td>
@@ -46,26 +50,6 @@ licences, listed below:</p>
         <td>jfreechart v1.0.13</td>
         <td><a href="http://www.jfree.org/jfreechart/">http://www.jfree.org/jfreechart/</a></td>
         <td><a href="http://www.gnu.org/licenses/lgpl.html">http://www.gnu.org/licenses/lgpl.html</a></td>
-    </tr>
-    <tr>
-        <td>EasyMock v3.0</td>
-        <td><a href="http://easymock.org/">http://easymock.org/</a></td>
-        <td><a href="http://easymock.org/License.html">http://easymock.org/License.html</a></td>
-    </tr>
-    <tr>
-        <td>CgLib v2.2</td>
-        <td><a href="http://cglib.sourceforge.net/">http://cglib.sourceforge.net/</a></td>
-        <td><a href="http://www.apache.org/foundation/licence-FAQ.html">http://www.apache.org/foundation/licence-FAQ.html</a></td>
-    </tr>
-    <tr>
-        <td>Objenesis v1.2</td>
-        <td><a href="http://objenesis.googlecode.com/svn/docs/index.html">http://objenesis.googlecode.com/svn/docs/index.html</a></td>
-        <td><a href="http://objenesis.googlecode.com/svn/docs/license.html">http://objenesis.googlecode.com/svn/docs/license.html</a></td>
-    </tr>
-    <tr>
-        <td>ASM v3.3.1</td>
-        <td><a href="http://asm.ow2.org/index.html">http://asm.ow2.org/index.html</a></td>
-        <td><a href="http://asm.ow2.org/license.html">http://asm.ow2.org/license.html</a></td>
     </tr>
 </table>
 

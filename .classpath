@@ -6,6 +6,8 @@
 	<classpathentry kind="lib" path="src/lib/jcommon-1.0.16.jar"/>
 	<classpathentry kind="lib" path="src/lib/jfreechart-1.0.13.jar"/>
 	<classpathentry kind="lib" path="src/lib/jlfgr-1_0.jar"/>
+	<classpathentry kind="lib" path="src/lib/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="src/lib/commons-io-2.4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
